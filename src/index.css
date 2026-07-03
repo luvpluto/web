@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #f4f4f2;
+  background: #050505;
+  font-synthesis: none;
+  text-rendering: geometricPrecision;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.08), transparent 26rem),
+    radial-gradient(circle at 80% 12%, rgba(148, 163, 184, 0.11), transparent 32rem),
+    #050505;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow:
+      0 0 24px rgba(255, 255, 255, 0.24),
+      0 0 70px rgba(180, 190, 220, 0.18);
+  }
+
+  .cinema-vignette {
+    background:
+      radial-gradient(circle at center, transparent 28%, rgba(0, 0, 0, 0.48) 62%, rgba(0, 0, 0, 0.92) 100%),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.8), transparent 26%, transparent 72%, rgba(0, 0, 0, 0.82)),
+      linear-gradient(180deg, rgba(0, 0, 0, 0.8), transparent 20%, transparent 76%, rgba(0, 0, 0, 0.86));
+  }
+
+  .noise-texture {
+    background-image:
+      repeating-radial-gradient(circle at 17% 32%, rgba(255, 255, 255, 0.55) 0 1px, transparent 1px 5px),
+      repeating-linear-gradient(115deg, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 7px);
+    mix-blend-mode: overlay;
+  }
+
+  .film-lines {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 86px 86px;
+    mask-image: radial-gradient(circle at center, #000 8%, transparent 72%);
+  }
+
+  .arrow-float {
+    animation: arrowFloat 1.8s ease-in-out infinite;
+  }
+
+  .slow-drift {
+    animation: slowDrift 13s ease-in-out infinite alternate;
+  }
+
+  .grain-drift {
+    animation: grainDrift 9s steps(7) infinite;
+  }
+
+  .particle-float {
+    animation-name: particleFloat;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  .avatar-float {
+    animation: avatarFloat 4.8s ease-in-out infinite;
+  }
+
+  .avatar-glow {
+    animation: avatarGlow 3.8s ease-in-out infinite;
+  }
+
+  .hero-avatar-stage,
+  .hero-name-line,
+  .hero-tagline-line,
+  .hero-socials,
+  .hero-scroll-cue,
+  .section-title,
+  .section-kicker,
+  .section-copy,
+  .stagger-card,
+  .image-reveal,
+  .parallax-image {
+    will-change: transform, opacity, filter, clip-path;
+  }
+
+  .image-reveal {
+    isolation: isolate;
+  }
+}
+
+@keyframes arrowFloat {
+  0%,
+  100% {
+    transform: translateY(-2px);
+    opacity: 0.48;
+  }
+  50% {
+    transform: translateY(7px);
+    opacity: 1;
+  }
+}
+
+@keyframes slowDrift {
+  from {
+    transform: translate3d(-1%, -1%, 0) scale(1.02);
+  }
+  to {
+    transform: translate3d(1.5%, 1%, 0) scale(1.05);
+  }
+}
+
+@keyframes grainDrift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(-1.5%, 1%, 0);
+  }
+}
+
+@keyframes particleFloat {
+  from {
+    transform: translate3d(0, 0, 0) scale(0.9);
+    opacity: 0.15;
+  }
+  to {
+    transform: translate3d(var(--float-x), var(--float-y), 0) scale(1);
+    opacity: 0.78;
+  }
+}
+
+@keyframes avatarFloat {
+  0%,
+  100% {
+    transform: translate3d(0, -18px, 0);
+  }
+  50% {
+    transform: translate3d(0, -28px, 0);
+  }
+}
+
+@keyframes avatarGlow {
+  0%,
+  100% {
+    opacity: 0.42;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 0.78;
+    transform: scale(1.08);
+  }
+}
