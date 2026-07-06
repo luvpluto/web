@@ -6,7 +6,7 @@ type VideoBackgroundProps = {
 };
 
 export default function VideoBackground({
-  src = '/videos/background-optimized.mp4',
+  src = '/videos/background.mp4',
   poster = '/images/hero-poster.jpg',
 }: VideoBackgroundProps) {
   const [videoFailed, setVideoFailed] = useState(false);
